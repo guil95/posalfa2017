@@ -9,11 +9,6 @@ public class Jogador extends Personagem {
         super(nome, lugar);
     }
 
-    @Override
-    public void chora() {
-        System.out.println("Buabuaba");
-    }
-
     public String getNome() {
         return nome;
     }

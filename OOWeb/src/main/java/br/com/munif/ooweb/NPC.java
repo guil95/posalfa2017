@@ -13,9 +13,5 @@ public class NPC extends Personagem {
                 lugar);
     }
 
-    @Override
-    public void chora() {
-        System.out.println("ChuaChuaCHua");
-    }
 
 }

@@ -65,5 +65,9 @@ public class Lugar {
     public List<String> getMensagens() {
         return mensagens;
     }
+    
+    public int getTotalMensagens(){
+        return mensagens.size();
+    }
 
 }

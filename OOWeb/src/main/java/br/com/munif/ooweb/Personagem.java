@@ -6,8 +6,6 @@ public abstract class Personagem implements Descritivel {
 
     private Lugar lugar;
 
-    public abstract void chora();
-
     public Personagem() {
     }
 
