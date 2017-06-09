@@ -66,8 +66,5 @@ public class Lugar {
         return mensagens;
     }
     
-    public int getTotalMensagens(){
-        return mensagens.size();
-    }
 
 }
