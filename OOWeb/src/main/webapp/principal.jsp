@@ -12,7 +12,7 @@
     }
     Lugar lc = jogador.getLugar();
     if (mensagem != null && mensagem.trim().length() > 0) {
-        lc.getMensagens().add(jogador.getNome() + " : " + mensagem);
+        lc.getMensagens().add("<strong>"+jogador.getNome() + "</strong> : " + mensagem);
     }
 
     if (movimento != null && movimento.trim().length() > 0) {
@@ -137,7 +137,7 @@
                                     <label>Movimento:</label>
                                     <input class="form-control" type="text" name="movimento" value="" /><br/>
                                     <label>Mensagem:</label>
-                                    <input class="form-control" type="text" name="mensagem" value="" /><br/>
+                                    <textarea class="form-control" type="text" name="mensagem" value="" ></textarea><br/>
                                     <input class="btn btn-primary" type="submit" value="Enviar" />
                                 </div>
                             </form>
