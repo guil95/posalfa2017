@@ -35,11 +35,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
         <title>Jogo 2017</title>
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
@@ -54,60 +54,97 @@
                             <%=jogador.getLugar().getDescricao()%></h2>
                     </div>
                     <div class="row">
-                    <div class="col-xs-6">
-                        <h4>Jogadores da sala:</h4>
-                        <ul class="list-group">
-                            <%
+                        <div class="col-xs-6">
+                            <h4>Jogadores da sala:</h4>
+                            <ul class="list-group">
+                                <%
                                     for (int i = 0; i < jogador.getLugar().getPersonagens().size(); i++) { %>
-                            <li class="list-group-item">
-                                <%
-                                    out.println(jogador.getLugar().getPersonagens().get(i));
+                                <li class="list-group-item">
+                                    <%
+                                        out.println(jogador.getLugar().getPersonagens().get(i));
+                                    %>
+                                </li>  
+                                <% }
                                 %>
-                            </li>  
-                            <% }
-                            %>
-                        </ul>
-                    </div>
-                    <div class="col-xs-6">
-                        <h4>Mensagens</h4>
-                        <ul class="list-group">
-                            <%
-                            for (int i = 0; i < jogador.getLugar().getMensagens().size(); i++) { %>
-                            <li class="list-group-item">
+                            </ul>
+                        </div>
+                        <div class="col-xs-6">
+                            <h4>Mensagens</h4>
+                            <ul class="list-group">
                                 <%
-                                    out.println(jogador.getLugar().getMensagens().get(i));
+                                    for (int i = 0; i < jogador.getLugar().getMensagens().size(); i++) { %>
+                                <li class="list-group-item">
+                                    <%
+                                        out.println(jogador.getLugar().getMensagens().get(i));
+                                    %>
+                                </li>  
+                                <% }
                                 %>
-                            </li>  
-                            <% }
-                            %>
-                        </ul>
+                            </ul>
+                        </div>
                     </div>
-                    </div>
-                    <div class="jumbotron">
-                        <%
-                        if (lc.getLeste() != null) {
-                            out.println("1) Para leste " + lc.getLeste().getDescricao());
-}%><br><%
-                        if (lc.getOeste() != null) {
-                            out.println("2) Para Oeste " + lc.getOeste().getDescricao());
-}%><br>
-                        <%if (lc.getNorte() != null) {
-                            out.println("3) Para Norte " + lc.getNorte().getDescricao());
-}%><br>
-                        <%if (lc.getSul() != null) {
-                            out.println("4) Para Sul " + lc.getSul().getDescricao());
-                        }
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h1 class="panel-title"><strong>Movimentos</strong></h1>
+                        </div>
+                        <table class="table-condensed table-striped">
+                            <tbody>
+                            <ul class="list-group">
+                                <%
+                                    if (lc.getLeste() != null) {
+                                %>
+                                <li class="list-group-item">
+                                    <%
+                                        out.println("1) Para leste " + lc.getLeste().getDescricao());
+                                    %>
+                                </li>
+                                <%
+                                    }
+                                    if (lc.getOeste() != null) {
+                                %>
+                                <li class="list-group-item">
+                                    <%
+                                            out.println("2) Para Oeste " + lc.getOeste().getDescricao());
+                                           %>
+                                </li>
+                                <%
+                                    } %>
+                                    <%
+                                        if (lc.getNorte() != null) {%>
+                                <li class="list-group-item">
+                                <%
+                                            out.println("3) Para Norte " + lc.getNorte().getDescricao());
+                                        %>
+                                    </li><%
+                                        }
+                                        if (lc.getSul() != null) {
+%>
+<li class="list-group-item"><%
 
-                        %>
+                                            out.println("4) Para Sul " + lc.getSul().getDescricao());
+%></li><%
+                                        }
+
+                                    %>
+                            </ul>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <form method="POST" action="principal.jsp">
+                                <div class="form-group">
+                                    <label>Movimento:</label>
+                                    <input class="form-control" type="text" name="movimento" value="" /><br/>
+                                    <label>Mensagem:</label>
+                                    <input class="form-control" type="text" name="mensagem" value="" /><br/>
+                                    <input class="btn btn-primary" type="submit" value="Enviar" />
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <form method="POST" action="principal.jsp">
-            Movimento:<input type="text" name="movimento" value="" /><br/>
-            Mensagem:<input type="text" name="mensagem" value="" /><br/>
-            <input type="submit" value="Enviar" />
-        </form>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
     </body>
 </html>
