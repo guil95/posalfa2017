@@ -6,7 +6,8 @@
     String nome = request.getParameter("nome");
     String movimento = request.getParameter("movimento");
     String mensagem = request.getParameter("mensagem");
-    if (nome != null) {
+    
+    if (nome != null && nome != "") {
         jogador.setNome(nome);
         jogador.setLugar(mapa.getLugarInicialJogador());
     }
@@ -40,6 +41,16 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        <%
+        if(nome == ""){ %>
+    <div class="alert alert-danger">
+        <p>Nome não pode ser vazio, digite nome.</p>
+    </div>
+        <a href="index.html" class="btn btn-primary">Voltar</a>
+    
+    <% return;}   
+
+        %>
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
